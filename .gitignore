@@ -1,0 +1,39 @@
+# =============================================
+# openENE — ENE Digital Ghost Repository
+# =============================================
+
+# Sensitive config
+config/openclaw.json
+*.json.bak
+*.json.bak.*
+*.json.last-good
+*.json.pre-update
+*.json.clobbered.*
+*.bak
+
+# Runtime state
+state/
+logs/
+tasks/
+flows/
+devices/paired.json
+devices/pending.json
+
+# Identity/secrets
+identity/device-auth.json
+identity/device.json
+
+# NPM/skills cache
+npm/
+plugin-skills/
+
+# OS junk
+Thumbs.db
+.DS_Store
+*.log
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Node
+node_modules/

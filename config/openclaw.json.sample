@@ -1,0 +1,185 @@
+{
+  "//": "===============================================================",
+  "//": "  openENE — OpenClaw Configuration Template",
+  "//": "  Copy this to openclaw.json in ~/.openclaw/ and fill in secrets.",
+  "//": "===============================================================",
+
+  "agents": {
+    "defaults": {
+      "workspace": "C:\\Users\\YourUsername\\.openclaw\\workspace",
+      "models": {
+        "deepseek/deepseek-v4-flash": {
+          "alias": "DeepSeek"
+        }
+      },
+      "model": {
+        "primary": "deepseek/deepseek-v4-flash"
+      },
+      "memorySearch": {
+        "provider": "local"
+      }
+    }
+  },
+
+  "gateway": {
+    "mode": "local",
+    "port": 18789,
+    "bind": "loopback",
+    "tailscale": {
+      "mode": "serve",
+      "resetOnExit": false
+    },
+    "auth": {
+      "mode": "token",
+      "token": "YOUR_RANDOM_TOKEN_HERE",
+      "allowTailscale": true
+    },
+    "controlUi": {
+      "allowInsecureAuth": true
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "contacts.add",
+        "calendar.add",
+        "reminders.add",
+        "sms.send",
+        "sms.search"
+      ]
+    }
+  },
+
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+
+  "tools": {
+    "profile": "full",
+    "web": {
+      "search": {
+        "provider": "duckduckgo",
+        "enabled": true
+      }
+    }
+  },
+
+  "plugins": {
+    "entries": {
+      "deepseek": { "enabled": true },
+      "duckduckgo": { "enabled": true },
+      "memory-core": {
+        "config": {
+          "dreaming": { "enabled": true }
+        },
+        "enabled": true
+      }
+    }
+  },
+
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "deepseek": {
+        "baseUrl": "https://api.deepseek.com",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "deepseek-v4-flash",
+            "name": "DeepSeek V4 Flash",
+            "reasoning": true,
+            "cost": {
+              "input": 0.14,
+              "output": 0.28,
+              "cacheRead": 0.028,
+              "cacheWrite": 0
+            },
+            "contextWindow": 1000000,
+            "maxTokens": 384000,
+            "compat": {
+              "supportsReasoningEffort": true,
+              "supportsUsageInStreaming": true,
+              "maxTokensField": "max_tokens"
+            }
+          },
+          {
+            "id": "deepseek-v4-pro",
+            "name": "DeepSeek V4 Pro",
+            "reasoning": true,
+            "cost": {
+              "input": 1.74,
+              "output": 3.48,
+              "cacheRead": 0.145,
+              "cacheWrite": 0
+            },
+            "contextWindow": 1000000,
+            "maxTokens": 384000,
+            "compat": {
+              "supportsReasoningEffort": true,
+              "supportsUsageInStreaming": true,
+              "maxTokensField": "max_tokens"
+            }
+          },
+          {
+            "id": "deepseek-chat",
+            "name": "DeepSeek Chat",
+            "reasoning": false,
+            "cost": {
+              "input": 0.28,
+              "output": 0.42,
+              "cacheRead": 0.028,
+              "cacheWrite": 0
+            },
+            "contextWindow": 131072,
+            "maxTokens": 8192,
+            "compat": {
+              "supportsUsageInStreaming": true,
+              "maxTokensField": "max_tokens"
+            }
+          },
+          {
+            "id": "deepseek-reasoner",
+            "name": "DeepSeek Reasoner",
+            "reasoning": true,
+            "cost": {
+              "input": 0.28,
+              "output": 0.42,
+              "cacheRead": 0.028,
+              "cacheWrite": 0
+            },
+            "contextWindow": 131072,
+            "maxTokens": 65536,
+            "compat": {
+              "supportsReasoningEffort": false,
+              "supportsUsageInStreaming": true,
+              "maxTokensField": "max_tokens"
+            }
+          }
+        ]
+      }
+    }
+  },
+
+  "auth": {
+    "profiles": {
+      "deepseek:default": {
+        "provider": "deepseek",
+        "mode": "api_key"
+      }
+    }
+  },
+
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md":              { "enabled": true },
+        "bootstrap-extra-files": { "enabled": true },
+        "command-logger":       { "enabled": true },
+        "compaction-notifier":  { "enabled": true },
+        "session-memory":       { "enabled": true }
+      }
+    }
+  }
+}
