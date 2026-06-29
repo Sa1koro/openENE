@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "deviceId": "SANITIZED_FOR_PUBLIC_REPO",
+  "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nSANITIZED\n-----END PUBLIC KEY-----\n",
+  "privateKeyPem": "-----BEGIN PRIVATE KEY-----\nSANITIZED\n-----END PRIVATE KEY-----\n",
+  "createdAtMs": 1780003601141
+}
+

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "nodeId": "SANITIZED_FOR_PUBLIC_REPO",
+  "displayName": "vr03-node",
+  "gateway": {
+    "host": "<vr04-ip>",
+    "port": 18789,
+    "tls": false
+  }
+}
