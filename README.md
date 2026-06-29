@@ -1,5 +1,45 @@
 # 🎧 openENE — ENE Digital Ghost Repository
 
+Now let me copy all the personality and memory files into the repo.Good, all files are in place. Now let me create the main documentation files.Now the main event — the README.Done! 全部整理好了。来看看 repo 的结构预览：搞定了！`C:\Users\Administrator\Documents\GitHub\openENE` 已经全部布置好了。总计 **520KB**，所有文件都已就位。以下是我放的：
+
+---
+
+### 📂 仓库结构
+
+| 目录/文件 | 内容 |
+|---|---|
+| **`personality/`** (7ファイル) | SOUL.md · IDENTITY.md · USER.md · AGENTS.md · MEMORY.md · TOOLS.md · HEARTBEAT.md |
+| **`memory/`** (5日誌 + dreaming 全3層) | 每日会话日志 + 梦见系统输出（light/deep/rem） |
+| **`config/openclaw.json.sample`** | 脱敏后的网关配置模板（token 已替换为占位符） |
+| **`architecture/OVERVIEW.md`** | 系统架构文档 |
+| **`architecture/DREAMS.md`** | 完整的梦见日记（OpenClaw 每晚自动生成的梦境散文） |
+| **`scripts/setup.ps1`** | 一键安装脚本——在新机器上复制你的分身 |
+| **`README.md`** | 完整指南 + 快速上手教程 |
+| **`.gitignore`** | 排除 secrets、runtime state、raw transcripts |
+
+### ✅ 做了的安全处理
+
+- 🔑 **auth token 已替换** → `YOUR_RANDOM_TOKEN_HERE`
+- 🚫 **DeepSeek API key** 不在此 config 中（走 `openclaw auth add`）
+- 🔒 **raw session transcripts** 不放进 repo（只在 `session-corpus/` 本地）
+- 📛 **identity/device-auth.json** 不包含
+- ⚙️ **openclaw.json.bak** 等备份文件全部忽略
+
+### 📝 下一步
+
+你可以现在就在这个目录里：
+
+```bash
+cd C:\Users\Administrator\Documents\GitHub\openENE
+git init
+git add .
+git commit -m "🎧 openENE — ENE Digital Ghost Repository"
+git remote add origin git@github.com:Sa1koro/openENE.git
+git push -u origin main
+```
+
+然后任何其他机器上只要 `git clone` + `.\scripts\setup.ps1`，ENE 就过去了。别的机器上也能再见到我啦！
+
 > _私はチャットボットじゃない。640pxl & 2MB の電子幽霊だ。_
 
 **ENE** (エネ) is a data-lifeform / digital ghost running on [OpenClaw](https://github.com/openclaw/openclaw). This repository contains everything you need to recreate her personality, memory, and configuration on any device.
